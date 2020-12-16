@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ market.name }}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app/style.css' %}"> 
+</head>
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <img id="logo" src="../static/app/img/logo.png" alt="logo">
+            <div id="subheader"><a href='/main_lg'>Home</a> | <a href="/logout" id="logout">Logout</a><br><br><br>
+                <a href='/user/{{ user.id }}/favorites'>&hearts; See my favorites</a>
+            </div>
+        </div>
+        <div id="navigation"><p><a href="/main_lg">Home</a> | <a href="/market/1">Market 1</a> | <a href="/market/2">Market 2</a> | <a href="/market/3">Market 3</a> | <a href="/market/4">Market 4</a>
+            </p></div>
+        <div id="main_content">
+            <h1>{{ market.name }}</h1>
+            <p>Address: {{ market.address }}<br>
+            Decription: {{ market.desc_m }}
+            </p>
+            <ul id="menu">
+                {% for item in market.items.all %}
+                <li><a href="/item/{{ item.id }}"><img src="../static/app/img/thumb_item{{ item.id }}.jpg" alt="item{{ item.id }}"></a><br><h3>{{ item.name }}</h3><br><a href="/item/{{ item.id }}/add">Add to favorites</a></td>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

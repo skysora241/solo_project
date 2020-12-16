@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome to Foodies!</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app/style.css' %}"> 
+</head>
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <img id="logo" src="static/app/img/logo.png" alt="logo">
+            <div id="subheader"><a href='/main_lg'>Home</a> | <a href="/logout" id="logout">Logout</a><br><br><br>
+                <a href='/user/{{ user.id }}/favorites'>&hearts; My favorites</a>
+            </div>
+        </div>
+        <div id="navigation"><p><a href="/main_lg">Home</a> | <a href="/market/1">Market 1</a> | <a href="/market/2">Market 2</a> | <a href="/market/3">Market 3</a> | <a href="/market/4">Market 4</a>
+            </p></div>
+        <div id="main_content">
+            <!-- Images via https://k-life.co/life/4352 -->
+            <div class="container">
+                <a href="#">
+                    <img class="thumb" src="static/app/img/thumb1.jpg">
+                </a>
+                <a href="#">
+                    <img class="thumb" src="static/app/img/thumb2.jpg">
+                    <img class="big" src="static/app/img/002.jpg">
+                </a>            
+                <a href="#">
+                    <img class="thumb" src="static/app/img/thumb3.jpg">
+                    <img class="big" src="static/app/img/003.jpg">
+                </a>            
+                <a href="#">
+                    <img class="thumb" src="static/app/img/thumb4.jpg">
+                    <img class="big" src="static/app/img/004.jpg">
+                </a>
+                <a href="#">
+                    <img class="thumb" src="static/app/img/thumb5.jpg">
+                    <img class="big" src="static/app/img/005.jpg">
+                </a>            
+                <a href="#">
+                    <img class="big featured" src="static/app/img/001.jpg">
+                </a>
+            </div>
+        </div>
+    </div><!-- end of wrapper -->
+</body>
+</html>

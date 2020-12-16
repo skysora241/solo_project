@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome to Foodies!</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app/style.css' %}"> 
+</head>
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <img id="logo" src="static/app/img/logo.png" alt="logo">
+            <div id="subheader"><a href='/main'>Home</a>
+            </div>
+        </div>
+        <div class="container2">
+            <div class="box">
+                <h1>Registration</h1>
+                <ul class="messages">
+                    <form action="/create_user" method="POST">
+                        {% csrf_token %}
+                        <label for="first_name">First name:</label>
+                        <input type="text" id="first_name" name="first_name" class="form_control"><br>
+                        <label for="last_name">Last name:</label>
+                        <input type="text" id="last_name" name="last_name" class="form_control"><br>
+                        <label for="email">Email:</label>
+                        <input type="text" id="email" name="email" class="form_control"><br>
+                        <label for="pw">Password:</label>
+                        <input type="password" id="pw" name="pw" class="form_control"><br>
+                        <label for="conf_pw">Confirm PW:</label>
+                        <input type="password" id="conf_pw" name="conf_pw" class="form_control"><br>
+                        <input type="submit" id="button" value="Register">
+                    </form>
+                </ul>
+                <p>Already a member? <a href="/signin">Please Log in here</a></p>
+                <ul class="messages">    
+                    {% for message in messages %}    
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

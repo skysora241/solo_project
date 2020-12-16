@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ item.name }}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app/style.css' %}"> 
+</head>
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <img id="logo" src="../static/app/img/logo.png" alt="logo">
+            <div id="subheader"><a href='/main_lg'>Home</a> | <a href="/logout" id="logout">Logout</a><br><br><br>
+                <a href='/user/{{ user.id }}/favorites'>&hearts; See my favorites</a>
+            </div>
+        </div>
+        <div id="navigation"><p><a href="/main_lg">Home</a> | <a href="/market/1">Market 1</a> | <a href="/market/2">Market 2</a> | <a href="/market/3">Market 3</a> | <a href="/market/4">Market 4</a>
+            </p></div>
+            <!-- Images via various blogs at https://blog.naver.com/ -->
+        <div id="main_content">
+            <h1 id="item_info">{{ item.name }}</h1>
+            <div id="main_top">
+                <div id="box_sm">
+                    <img src="../static/app/img/item{{ item.id }}.jpg" width="500px" height="333px" alt="item{{ item.id }}">
+                </div>
+                <div id="box_sm">
+                    <p>Market: {{ item.market.name }}<br>Decription: {{ item.desc }}<br></p><p><a href="/market/{{ market.id }}">Go back to market</a> | <a href="/item/{{ item.id }}/add">Add to favorites</a></p> 
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
